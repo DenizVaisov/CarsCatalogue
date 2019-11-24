@@ -1,0 +1,14 @@
+CREATE TABLE Cars(
+id SERIAL PRIMARY KEY,
+title text NOT NULL,
+model text NOT NULL,
+year text,
+speed int,
+accelaration int,
+characteristic text,
+description text
+);
+
+SELECT * FROM Cars;
+INSERT INTO Cars(title, model, year, speed, accelaration, characteristic, description)
+VALUES ('BMW', 'x5', '2012', 260, 3, 'None', 'None');
