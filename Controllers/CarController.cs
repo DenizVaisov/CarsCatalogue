@@ -68,7 +68,7 @@ namespace CarsCatalogue.Controllers
             {
                 if (car == null)
                 {
-                    return BadRequest("Owner object is null");
+                    return BadRequest("Car object is null");
                 }
 
                 if (!ModelState.IsValid)
@@ -99,7 +99,7 @@ namespace CarsCatalogue.Controllers
             {
                 if (car == null)
                 {
-                    return BadRequest("Owner object is null");
+                    return BadRequest("Car object is null");
                 }
 
                 if (!ModelState.IsValid)
@@ -126,7 +126,7 @@ namespace CarsCatalogue.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteOwner(int id)
+        public IActionResult DeleteCar(int id)
         {
             try
             {

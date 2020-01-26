@@ -11,14 +11,14 @@ namespace CarsCatalogue.Repository
         {
         
         }
-
+        
         public IEnumerable<Car> GetAllCars()
         {
             return FindAll()
                 .OrderBy(car => car.title)
                 .ToList();
         }
-
+        
         public Car GetCarById(int carId)
         {
             return FindByCondition(car => car.id.Equals(carId))
@@ -35,7 +35,7 @@ namespace CarsCatalogue.Repository
         {
             Update(car);
         }
-
+        
         public void DeleteCar(Car car)
         {
             Delete(car);

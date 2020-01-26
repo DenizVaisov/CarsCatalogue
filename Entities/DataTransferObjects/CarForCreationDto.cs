@@ -10,7 +10,11 @@ namespace CarsCatalogue.Models.DataTransferObjects
         public string year { get; set; }
         public int speed { get; set; }
         public int accelaration { get; set; }
-        public string characteristic { get; set; }
+		public double price { get; set; }
+        public string engine { get; set; }
+		public int capacity { get; set; }
         public string description { get; set; }
+		public string image {get; set;} 
+		public string video { get; set; }
     }
 }
