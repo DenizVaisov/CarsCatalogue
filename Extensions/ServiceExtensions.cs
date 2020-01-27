@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CarsCatalogue.Extensions
 {
+    //CODEREV: Не видно смысла в еще большем разбиении конфигурации из одного файла в несколько
     public static class ServiceExtensions
     {
         public static void ConfigureCors(this IServiceCollection services)
