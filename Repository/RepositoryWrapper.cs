@@ -7,7 +7,7 @@ namespace CarsCatalogue.Repository
     {
         private RepositoryContext _repoContext;
         private ICarRepository _carRepository;
- 
+        //CODEREV: Такие вещи должны работать через Dependency Injection иначе вы теряете инверсию зависимости над CarRepository. Пусть он тоже инжектится через DI
         public ICarRepository Car {
             get {
                 if(_carRepository == null)

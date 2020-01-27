@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarsCatalogue.Models.DataTransferObjects
 {
+    //CODEREV: Data transfer object - паттерн, который испольузется для передачи данных между подсистемами системы (между классами в данном случае). У вас же он используется для передачи данных снаружи. В терминах REST эта вещи называется Resource. Использование имени DTO при этом скрывает смысловое предназначение этого класса. То же можно сказать про другие DTO в проекте
     public class CarDto
     {
         [Key]

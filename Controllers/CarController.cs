@@ -25,6 +25,7 @@ namespace CarsCatalogue.Controllers
         [HttpGet]
         public IActionResult GetAllCars()
         {
+            //CODEREV: try-catch который делает то, что уже и так делает asp.net в режиме релиза, а в режиме дебага скрывает вам реально происходящие эксепшны. Такой блок лишний. Если вам нужно обрабатывать исключение, которое выкинуло бы ошибку 500, но при это делать еще вещи в catch блоке (например закрывать открытые файлы) - тогда используйте его, делайте все нужные вещи и вконце снова выкидывайте то исключение, которе произошло, чтобы оно было поймано в asp.net. То же относится к жругим экшнам
             try 
             { 
                 var cars = _repository.Car.GetAllCars();
@@ -44,7 +45,7 @@ namespace CarsCatalogue.Controllers
             try
             {
                 var car = _repository.Car.GetCarById(id);
- 
+                //CODEREV: Это удобно заменить тернарным оператором
                 if (car == null)
                 {
                     return NotFound();
@@ -70,7 +71,7 @@ namespace CarsCatalogue.Controllers
                 {
                     return BadRequest("Car object is null");
                 }
-
+                //CODEREV: Это свойство работает разве с фронтом в виде веб приложения? По-моему оно должно работать только при связывании с Razor View.
                 if (!ModelState.IsValid)
                 {
                     Console.WriteLine(BadRequest("Invalid model object"));

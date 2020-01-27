@@ -10,7 +10,7 @@ namespace CarsCatalogue
         {
             CreateMap<Car, CarDto>();
             CreateMap<CarForCreationDto, Car>();
-            CreateMap<Car, CarDto>();
+            CreateMap<Car, CarDto>(); //CODEREV: Дубликат кода выше?
             CreateMap<CarForUpdateDto, Car>();
         }
     }
