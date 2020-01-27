@@ -39,7 +39,7 @@ namespace CarsCatalogue.Controllers
         }
         
         [HttpGet("{id}", Name = "CarById")]
-        public IActionResult GetCarById(int id)
+        public IActionResult GetCarById(Guid id)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace CarsCatalogue.Controllers
         }
         
         [HttpPut("{id}")]
-        public IActionResult UpdateCar(int id, [FromBody]CarForUpdateDto car)
+        public IActionResult UpdateCar(Guid id, [FromBody]CarForUpdateDto car)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace CarsCatalogue.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteCar(int id)
+        public IActionResult DeleteCar(Guid id)
         {
             try
             {

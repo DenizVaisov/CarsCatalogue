@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CarsCatalogue.Models;
 
 namespace CarsCatalogue.Contracts
@@ -6,7 +7,7 @@ namespace CarsCatalogue.Contracts
     public interface ICarRepository: IRepositoryBase<Car>
     {
         IEnumerable<Car> GetAllCars();
-        Car GetCarById(int carId);
+        Car GetCarById(Guid carId);
         void CreateCar(Car car);
         void UpdateCar(Car car);
         void DeleteCar(Car car);

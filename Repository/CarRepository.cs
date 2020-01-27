@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CarsCatalogue.Contracts;
 using CarsCatalogue.Models;
@@ -19,7 +20,7 @@ namespace CarsCatalogue.Repository
                 .ToList();
         }
         
-        public Car GetCarById(int carId)
+        public Car GetCarById(Guid carId)
         {
             return FindByCondition(car => car.id.Equals(carId))
                 .DefaultIfEmpty(new Car())
