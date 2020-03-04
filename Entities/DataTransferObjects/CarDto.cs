@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,17 +8,19 @@ namespace CarsCatalogue.Models.DataTransferObjects
     public class CarDto
     {
         [Key]
-        public Guid id { get; set; }
-        public string title { get; set; }
-        public string model { get; set; }
-        public string year { get; set; }
-        public int speed { get; set; }
-        public double accelaration { get; set; }
-		public double price { get; set; }
-        public string engine { get; set; }
-		public double capacity { get; set; }
-        public string description { get; set; }
-		public string image {get; set;}
-		public string video { get; set; }
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Model { get; set; }
+        public string Year { get; set; }
+        public int Speed { get; set; }
+        public double Accelaration { get; set; }
+		public double Price { get; set; }
+        public string Engine { get; set; }
+		public double Capacity { get; set; }
+        public string Description { get; set; }
+		public string Image {get; set;}
+		public string Video { get; set; }
+		
+		public IEnumerable<CarDetailsDto> CarDetails { get; set; }
     }
 }

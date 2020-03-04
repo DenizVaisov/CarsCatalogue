@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarsCatalogue.Contracts;
@@ -61,6 +62,29 @@ namespace CarsCatalogue.Controllers
             }
         }
         
+        [HttpGet("{id}/cardetails")] 
+        public IActionResult GetCarWithDetails(Guid id) 
+        { 
+            try 
+            { 
+                var car = _repository.Car.GetCarWithDetails(id); 
+                if (car == null) 
+                { 
+                    return NotFound(); 
+                } 
+                else 
+                { 
+
+                    var carResult = _mapper.Map<CarDto>(car);
+                    return Ok(carResult); 
+                } 
+            } 
+            catch (Exception ex) 
+            { 
+                return StatusCode(500, "Internal server error"); 
+            }
+        }
+        
         [HttpPost]
         public IActionResult CreateCar([FromBody]CarForCreationDto car)
         {
@@ -84,7 +108,7 @@ namespace CarsCatalogue.Controllers
 
                 var createdCar = _mapper.Map<CarDto>(carEntity);
                 Console.WriteLine(carEntity + " " + createdCar);
-                return CreatedAtRoute("CarById", new {id = createdCar.id}, createdCar);
+                return CreatedAtRoute("CarById", new {id = createdCar.Id}, createdCar);
             }
             catch (Exception ex)
             {
@@ -136,6 +160,11 @@ namespace CarsCatalogue.Controllers
                     return NotFound();
                 }
 
+                if (_repository.CarDetails.CarDetailsById(id).Any()) 
+                {
+                    return BadRequest("Cannot delete car. It has related records. Delete those records first"); 
+                }
+                
                 _repository.Car.DeleteCar(car);
                 _repository.Save();
 

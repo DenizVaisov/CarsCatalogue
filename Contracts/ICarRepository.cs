@@ -8,6 +8,7 @@ namespace CarsCatalogue.Contracts
     {
         IEnumerable<Car> GetAllCars();
         Car GetCarById(Guid carId);
+        Car GetCarWithDetails(Guid carId);
         void CreateCar(Car car);
         void UpdateCar(Car car);
         void DeleteCar(Car car);

@@ -10,6 +10,7 @@ namespace CarsCatalogue.Models
         }
  
         public DbSet<Car> Cars { get; set; }
+        public DbSet<CarDetails> CarDetails { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

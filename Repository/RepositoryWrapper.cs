@@ -7,6 +7,7 @@ namespace CarsCatalogue.Repository
     {
         private RepositoryContext _repoContext;
         private ICarRepository _carRepository;
+        private ICarDetailsRepository _carDetailsRepository;
  
         public ICarRepository Car {
             get {
@@ -16,6 +17,17 @@ namespace CarsCatalogue.Repository
                 }
  
                 return _carRepository;
+            }
+        }
+        
+        public ICarDetailsRepository CarDetails {
+            get {
+                if(_carDetailsRepository == null)
+                {
+                    _carDetailsRepository = new CarDetailsRepository(_repoContext);
+                }
+ 
+                return _carDetailsRepository;
             }
         }
  

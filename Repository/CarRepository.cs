@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CarsCatalogue.Contracts;
 using CarsCatalogue.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarsCatalogue.Repository
 {
@@ -27,6 +28,13 @@ namespace CarsCatalogue.Repository
                 .FirstOrDefault();
         }
 
+        public Car GetCarWithDetails(Guid carId)
+        {
+            return FindByCondition(car => car.id.Equals(carId))
+                .Include(cd => cd.CarDetails)
+                .FirstOrDefault();
+        }
+        
         public void CreateCar(Car car)
         {
             Create(car);

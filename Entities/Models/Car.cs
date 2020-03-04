@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 namespace CarsCatalogue.Models
@@ -6,7 +7,7 @@ namespace CarsCatalogue.Models
     [Table("cars")]
     public class Car
     {
-        [Key]
+	    [Key]
         public Guid id { get; set; }
         public string title { get; set; }
         public string model { get; set; }
@@ -19,5 +20,7 @@ namespace CarsCatalogue.Models
         public string description { get; set; }
 		public string image {get; set;}
 		public string video {get; set;}
+		
+		public ICollection<CarDetails> CarDetails { get; set; }
     }
 }
